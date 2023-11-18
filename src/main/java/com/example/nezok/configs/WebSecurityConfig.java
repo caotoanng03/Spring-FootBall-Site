@@ -42,7 +42,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
                 .and()
                 // redirect to /home if login successfully
-                .formLogin().defaultSuccessUrl("/home").permitAll()
+                .formLogin().defaultSuccessUrl("/").permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")) .logoutSuccessUrl("/").permitAll()
                 .and()

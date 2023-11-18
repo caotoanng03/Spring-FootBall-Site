@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      th:replace="~{/layouts/default-admin :: layout(~{::title}, ~{::main})}">
+
+<head>
+    <title th:text="${pageTitle}"></title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <main>
+        <h3 class="logged-success">
+            Welcome Admin <u><span sec:authentication="principal.username"></span></u>
+        </h3>
+    </main>
+</body>
+</html>

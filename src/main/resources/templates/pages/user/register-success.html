@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default :: layout(~{::title}, ~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+    <main>
+        <div class="container my-5">
+            <h1 th:utext="'Registered Successfully. <br/> ID: ' + ${id}" />
+        </div>
+    </main>
+</body>
+</html>
