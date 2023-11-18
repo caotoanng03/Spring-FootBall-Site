@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default :: layout(~{::title}, ~{::main})}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <title>User Home</title>
 </head>
 <body>
-
+  <main>
+    <h1>Only user logged in view this page</h1>
+  </main>
 </body>
 </html>
