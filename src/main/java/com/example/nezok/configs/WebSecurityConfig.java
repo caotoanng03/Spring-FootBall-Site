@@ -18,6 +18,13 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class WebSecurityConfig {
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
+
+//    private static final String[] PUBLIC_MATCHERS = {
+//            "/css/**",
+//            "/js/**",
+//            "/webjars/**",
+//            "/static/**"
+//    };
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(customUserDetailsService).passwordEncoder(new
@@ -27,7 +34,7 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .requestMatchers("/resources/**", "/", "/password", "/register", "/registerPost").permitAll() .requestMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
+                .requestMatchers("/resources/**","/css/**","/images/**", "/", "/password", "/register", "/registerPost", "/test").permitAll().requestMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
                 .and()
                 // redirect to /home if login successfully
                 .formLogin().defaultSuccessUrl("/home").permitAll()
