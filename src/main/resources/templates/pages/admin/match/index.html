@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default-admin :: layout(~{::title}, ~{::main})}">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${pageTitle}"></title>
+</head>
+<body>
+<main>
+  <div class="container my-5">
+    <h1>Match List</h1>
+    <p>Keep track of your favorite matches. Don't miss out!</p>
+    <br/><br/>
+    <table class="table">
+      <thead class="table-light">
+      <tr>
+        <th >ID</th>
+        <th >Date</th>
+        <th >Starting Time</th>
+        <th >Ticket Price($)</th>
+        <th >Type</th>
+        <th ></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="match : ${matches}">
+        <td th:text="${match.id}"></td>
+        <td th:text="${match.datum}"></td>
+        <td th:text="${match.kezdes}"></td>
+        <td th:text="${match.belepo}"></td>
+        <td th:text="${match.tipus}"></td>
+        <td>
+          <a th:href="@{'/edit/'+ ${match.id}}">Edit</a>&nbsp;&nbsp;&nbsp;
+          <a th:href="@{'/delete/'+ ${match.id}}">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+</body>
+</html>

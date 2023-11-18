@@ -22,7 +22,9 @@ public class MatchController {
             meccs.setKezdes(meccs.getKezdes().substring(0,7));
         }
         model.addAttribute("matches", mecceses);
-        model.addAttribute("pageTitle", "Home| Match");
+        model.addAttribute("pageTitle", "Admin| Match");
         return "/pages/match/index";
     }
+
+
 }
