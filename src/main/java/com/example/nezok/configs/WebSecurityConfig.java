@@ -37,7 +37,9 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .requestMatchers("/resources/**","/css/**","/images/**", "/", "/password", "/register", "/registerPost", "/contact").permitAll().requestMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
+                .requestMatchers("/resources/**","/css/**","/images/**", "/",
+                        "/password", "/register", "/registerPost", "/contact", "/learn-more").permitAll()
+                .requestMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
                 .and()
                 // redirect to /home if login successfully
                 .formLogin().defaultSuccessUrl("/home").permitAll()

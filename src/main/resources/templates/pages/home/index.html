@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
 <html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default :: layout(~{::title}, ~{::main})}">
-
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title th:text="${pageTitle}"></title>
 </head>
+
+
 <body>
     <main>
         <div class="homepage">
             <div class="container">
                 <div class="content">
-                    <h2>Hungarian Football Hub</h2>
-                    <img width="60%" class="img-thumbnail rounded float-right" th:src="@{/images/football-child.jpeg}" alt="Home page image">
-                    <h4>Welcome to the World of Hungarian Football: Explore Clubs and Players</h4>
-                    <p>
-                        Discover the rich history and talent of Hungarian football on our website.
-                        Explore the top clubs and their star players, and stay updated with the latest news, scores, and statistics.
-                        Whether you're a die-hard fan or a casual enthusiast, our platform has something for everyone.
-                    </p>
-                    <a class="btn btn-primary" th:href="@{/learnmore}">Learn more..</a>
+                    <div class="homepage-head">
+                        <h2>Hungarian Football Hub</h2>
+                        <img width="70%" class="img-thumbnail rounded float-right" th:src="@{/images/football-child.jpeg}" alt="Home page image">
+                        <img width="70%" class="img-thumbnail rounded float-right" th:src="@{/images/homepage02.jpeg}" alt="Home page image">
+                    </div>
+                    <div class="homepage-desc">
+                        <h4>Welcome to the World of Hungarian Football: Explore Clubs and Players</h4>
+                        <p>
+                            Discover the rich history and talent of Hungarian football on our website.
+                            Explore the top clubs and their star players, and stay updated with the latest news, scores, and statistics.
+                            Whether you're a die-hard fan or a casual enthusiast, our platform has something for everyone.
+                        </p>
+                        <a class="btn btn-primary" th:href="@{/learn-more}">Learn more..</a>
+                    </div>
+
                 </div>
             </div>
         </div>

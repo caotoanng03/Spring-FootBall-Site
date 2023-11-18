@@ -18,9 +18,22 @@
 
 /*Home page*/
 .homepage {
+    height: 80vh;
     margin: 2rem 0;
 }
+.homepage .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 
+.homepage .homepage-head .img {
+    max-width: 500px;
+}
+.homepage .homepage-desc {
+    padding-left: 10px;
+}
 /*Contact Form*/
 .contact-form {
     width: 50%;
@@ -32,6 +45,15 @@
 .contact-image {
     object-fit: contain;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-bottom: 0;
 }
+
+/*Learn More*/
+.learn-more {
+    height: 80vh;
+    margin-top: 5%;
+}
+
+
+

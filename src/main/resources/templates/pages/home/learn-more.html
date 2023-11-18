@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default :: layout(~{::title}, ~{::main})}">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${pageTitle}"></title>
+</head>
+
+<body>
+
+  <main>
+    <div class="container learn-more">
+      <div class="row">
+        <div class="col-sm-3 mt-3 ml-5">
+          <h3>History of the Hungarian Football Championship</h3>
+          <p>The Hungarian championship is one of the oldest football leagues in Europe with a rich tradition. The first league was organized in 1901 by the MLSZ (Hungarian Football Federation, now the Hungarian Football Association), which was founded in January 1901 to bring together teams that had only been playing sporadically until then. Among these teams, you can find many clubs that are still active participants in the league today, as well as some whose names now only mean something to the most passionate football fans.</p>
+        </div>
+        <div class="col-sm-3 mt-3 ml-3 mb-sm-0">
+          <div class="card h-100" style="width: 18rem;">
+            <img th:src="@{/images/szuszaferenc.jpg}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Most Appearances</h5>
+              <p class="card-text">Most appearances by player in NB-I. league, Zoltán Végh he was a team player for Veszprém, Rába ETO, BVSC.</p>
+              <a href="https://hu.wikipedia.org/wiki/V%C3%A9gh_Zolt%C3%A1n" class="btn btn-primary" target="_blank">Link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 mt-3">
+          <div class="card h-100" style="width: 18rem;">
+            <img th:src="@{/images/defender.jpeg}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Top Defender</h5>
+              <p class="card-text">
+                Manager Marco Rosssi has named 30 players in his provisional squad, which he trimmed down to 26 ahead of UEFA's squad deadline on June 1.
+              </p>
+              <a href="https://en.wikipedia.org/wiki/Marco_Rossi_(footballer,_born_1964)" class="btn btn-primary" target="_blank">Link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 mt-3">
+          <div class="card h-100" style="width: 18rem;">
+            <img th:src="@{/images/zoltanvegh.jpg}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Top Goal Scorer</h5>
+              <p class="card-text">
+                Top goal scorer player in NB-I. league was Ferenc Szusza with the average of 0.85 goals per match
+                Goalkeepers also showed a greater tendency to separate out these sensory signals,
+                which may stem from a need to make quick decisions based on visual and auditory information coming in at different times.
+              </p>
+              <a href="https://hu.wikipedia.org/wiki/Szusza_Ferenc" class="btn btn-primary" target="_blank">Link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+</body>
+</html>
