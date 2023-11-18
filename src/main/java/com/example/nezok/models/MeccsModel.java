@@ -14,7 +14,7 @@ public class MeccsModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Date datum;
+    private String datum;
 
     private String kezdes;
 
@@ -38,8 +38,28 @@ public class MeccsModel {
         this.id = id;
     }
 
-    public void setDatum(Date datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
+    }
+
+    public String getDatum() {
+        return datum;
+    }
+
+    public String getKezdes() {
+        return kezdes;
+    }
+
+    public Integer getBelepo() {
+        return belepo;
+    }
+
+    public String getTipus() {
+        return tipus;
+    }
+
+    public List<BelepesModel> getBelepesModelList() {
+        return belepesModelList;
     }
 
     public void setKezdes(String kezdes) {
