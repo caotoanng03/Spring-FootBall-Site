@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default :: layout(~{::title}, ~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Result</title>
+</head>
+<body>
+    <main>
+        <div class="container my-5">
+            <h1>Thank you for sending</h1>
+            <div class="content">
+                <p th:text="'Your Email: ' + ${contactModel.email}" />
+                <p th:text="'Your Message: ' + ${contactModel.content}" />
+                <a th:href="@{/contact}">Send another message</a>
+            </div>
+            <div class="contact-image">
+                <img th:src="@{/images/contact.png}" alt="Contact image">
+            </div>
+        </div>
+    </main>
+</body>
+</html>

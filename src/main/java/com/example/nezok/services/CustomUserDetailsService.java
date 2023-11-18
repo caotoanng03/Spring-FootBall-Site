@@ -1,7 +1,7 @@
 package com.example.nezok.services;
 
-import com.example.nezok.models.User;
-import com.example.nezok.repositories.UserRepository;
+import com.example.nezok.models.UserModel;
+import com.example.nezok.repositories.UserRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,18 +17,18 @@ import java.util.Collection;
 @Transactional
 public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
-    private UserRepository userRepo;
+    private UserRepo userRepo;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User user = userRepo.findByEmail(userName)
+        UserModel userModel = userRepo.findByEmail(userName)
                 .orElseThrow(() -> new UsernameNotFoundException("Email " + userName + " not found"));
         return new org.springframework.security.core.userdetails.
-                User(user.getEmail(), user.getPassword(), getAuthorities(user));
+                User(userModel.getEmail(), userModel.getPassword(), getAuthorities(userModel));
     }
 
-    private static Collection<? extends GrantedAuthority> getAuthorities(User user) {
-        Collection<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(user.getRole());
+    private static Collection<? extends GrantedAuthority> getAuthorities(UserModel userModel) {
+        Collection<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(userModel.getRole());
         return authorities;
     }
 }

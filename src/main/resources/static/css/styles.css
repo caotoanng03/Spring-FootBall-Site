@@ -1,3 +1,7 @@
+
+
+/*Footer*/
+
 .footer {
     font-family: 'Noto Serif', sans-serif;
     text-align: center;
@@ -12,8 +16,22 @@
 
 }
 
+/*Home page*/
+.homepage {
+    margin: 2rem 0;
+}
 
-h1 {
+/*Contact Form*/
+.contact-form {
+    width: 50%;
+    margin: 0 auto;
+}
+.contact-form .contact-error {
     color: red;
-    font-family: monospace;
+}
+.contact-image {
+    object-fit: contain;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 0;
 }

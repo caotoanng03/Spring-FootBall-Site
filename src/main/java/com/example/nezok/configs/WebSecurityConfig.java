@@ -14,7 +14,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true, proxyTargetClass = true)
+@EnableGlobalMethodSecurity(
+        securedEnabled = true,
+        proxyTargetClass = true
+)
 public class WebSecurityConfig {
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
@@ -34,7 +37,7 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .requestMatchers("/resources/**","/css/**","/images/**", "/", "/password", "/register", "/registerPost", "/test").permitAll().requestMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
+                .requestMatchers("/resources/**","/css/**","/images/**", "/", "/password", "/register", "/registerPost", "/contact").permitAll().requestMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
                 .and()
                 // redirect to /home if login successfully
                 .formLogin().defaultSuccessUrl("/home").permitAll()

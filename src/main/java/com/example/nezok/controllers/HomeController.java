@@ -11,9 +11,4 @@ public class HomeController {
         model.addAttribute("title", "Home");
         return "pages/home/index";
     }
-
-    @GetMapping("/test")
-    String test(Model model) {
-        return "test";
-    }
 }

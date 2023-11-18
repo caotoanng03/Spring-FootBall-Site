@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name="nezo")
-public class Nezo {
+public class NezoModel {
     @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +24,10 @@ public class Nezo {
     @Getter
     @OneToMany
     @JoinColumn(name="nezoid")
-    private List<Belepes> belepesList;
+    private List<BelepesModel> belepesModelList;
 
-    public void setBelepesList(List<Belepes> belepesList) {
-        this.belepesList = belepesList;
+    public void setBelepesModelList(List<BelepesModel> belepesModelList) {
+        this.belepesModelList = belepesModelList;
     }
 
     public void setNev(String nev) {

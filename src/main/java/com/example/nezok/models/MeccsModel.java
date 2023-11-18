@@ -2,13 +2,12 @@ package com.example.nezok.models;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
 
 import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Meccs {
+public class MeccsModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +23,10 @@ public class Meccs {
 
     @OneToMany
     @JoinColumn(name="meccsid")
-    private List<Belepes> belepesList;
+    private List<BelepesModel> belepesModelList;
 
-    public void setBelepesList(List<Belepes> belepesList) {
-        this.belepesList = belepesList;
+    public void setBelepesList(List<BelepesModel> belepesModelList) {
+        this.belepesModelList = belepesModelList;
     }
 
     public int getId() {

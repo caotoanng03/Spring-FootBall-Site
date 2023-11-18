@@ -15,7 +15,7 @@
                     <a class="nav-link" th:href="@{/}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" th:href="@{/contact}">Contact Us</a>
                 </li>
                 <li class="nav-item" sec:authorize="isAnonymous()">
                     <a class="nav-link" th:href="@{/login}">Login</a>
@@ -30,7 +30,6 @@
                 <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
                     <a class="nav-link" th:href="@{/admin/home}">Admin</a>
                 </li>
-
             </ul>
             <div sec:authorize="isAuthenticated()">
                 <h3>Welcome <span sec:authentication="principal.username">User</span> </h3>

@@ -6,7 +6,7 @@ import java.sql.Time;
 
 @Entity
 @Table(name="belepes")
-public class Belepes {
+public class BelepesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,11 @@ public class Belepes {
     private Time idopont;
     @ManyToOne
     @JoinColumn(name = "nezoid", insertable = false, updatable = false)
-    private Nezo nezo;
+    private NezoModel nezoModel;
 
     @ManyToOne
     @JoinColumn(name = "meccsid", insertable = false, updatable = false)
-    private Meccs meccs;
+    private MeccsModel meccsModel;
 
     public Integer getNezoid() {
         return nezoid;
@@ -46,19 +46,19 @@ public class Belepes {
         return id;
     }
 
-    public Nezo getNezo() {
-        return nezo;
+    public NezoModel getNezo() {
+        return nezoModel;
     }
 
-    public void setNezo(Nezo nezo) {
-        this.nezo = nezo;
+    public void setNezo(NezoModel nezoModel) {
+        this.nezoModel = nezoModel;
     }
 
-    public Meccs getMeccs() {
-        return meccs;
+    public MeccsModel getMeccs() {
+        return meccsModel;
     }
 
-    public void setMeccs(Meccs meccs) {
-        this.meccs = meccs;
+    public void setMeccs(MeccsModel meccsModel) {
+        this.meccsModel = meccsModel;
     }
 }

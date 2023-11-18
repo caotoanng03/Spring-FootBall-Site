@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default :: layout(~{::title}, ~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+</head>
+<body>
+    <main>
+        <div class="container my-5">
+            <div class="contact-form">
+                <h1>Contact</h1>
+                <form action="#" th:action="@{/contact}" th:object="${contactModel}" method="POST">
+                    <div class="form-group">
+                        <label for="email"> Email</label>
+                        <input class="form-control" type="text" name="email" id="email" th:field="*{email}">
+                        <p class="contact-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                    </div>
+                    <p></p>
+                    <div class="form-group">
+                        <label for="content"> Message: </label>
+                        <textarea class="form-control" placeholder="Enter..." name="content" id="content" th:field="*{content}"></textarea>
+                        <p class="contact-error" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+                    </div>
+                    <p></p>
+                    <button class="btn btn-primary">Submit</button>
+                    <input class="btn btn-secondary" type="reset" value="Reset">
+                </form>
+            </div>
+
+            <div class="contact-image">
+                <img th:src="@{/images/contact.png}" alt="Contact image">
+            </div>
+        </div>
+    </main>
+</body>
+</html>
