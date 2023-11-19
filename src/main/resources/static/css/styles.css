@@ -31,9 +31,7 @@
 .homepage .homepage-head .img {
     max-width: 500px;
 }
-.homepage .homepage-desc {
-    padding-left: 10px;
-}
+
 /*Contact Form*/
 .contact-form {
     width: 50%;
@@ -51,7 +49,7 @@
 
 /*Learn More*/
 .learn-more {
-    height: 80vh;
+    height: 77vh;
     margin-top: 5%;
 }
 

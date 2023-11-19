@@ -31,8 +31,8 @@
         <td th:text="${match.belepo}"></td>
         <td th:text="${match.tipus}"></td>
         <td>
-          <a th:href="@{'/edit/'+ ${match.id}}">Edit</a>&nbsp;&nbsp;&nbsp;
-          <a th:href="@{'/delete/'+ ${match.id}}">Delete</a>
+          <a th:href="@{'/admin/matches/edit/'+ ${match.id}}">Edit</a>&nbsp;&nbsp;&nbsp;
+          <a th:href="@{'/admin/matches/delete/'+ ${match.id}}">Delete</a>
         </td>
       </tr>
       </tbody>

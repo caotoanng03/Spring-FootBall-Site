@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
@@ -31,7 +32,10 @@ public class ContactController {
         if(bindingResult.hasErrors()) {
             return "pages/contact/form";
         }
-        contactModel.setDate(new Date());
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(currentDate);
+        contactModel.setDate(formattedDate);
         contactRepo.save(contactModel);
         model.addAttribute("formResult", contactModel);
         return "pages/contact/formResult";

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default-admin :: layout(~{::title}, ~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+    <main>
+        <div class="container-sm my-5">
+            <h1>Edit Match</h1>
+            <form action="#" th:action="@{/admin/matches/editPost}" th:object="${match}" method="POST">
+                <div class="mb-3">
+                    <input type="hidden" class="form-control" id="id" th:field="*{id}" value="${match.id}">
+                </div>
+                <div class="mb-3">
+                    <label for="datum" class="form-label">Date: </label>
+                    <input type="date" class="form-control" id="datum" th:field="*{datum}" value="${match.datum}">
+                </div>
+                <div class="mb-3">
+                    <label for="kezdes" class="form-label">Starting Time: </label>
+                    <input type="time" class="form-control" id="kezdes" th:field="*{kezdes}" value="${match.kezdes}">
+                </div>
+                <div class="mb-3">
+                    <label for="belepo" class="form-label">Ticket Price: </label>
+                    <input type="number" class="form-control" id="belepo" th:field="*{belepo}" value="${match.belepo}">
+                </div>
+                <div class="mb-3">
+                    <label for="tipus" class="form-label">Type (bajnoki || kapu): </label>
+                    <input type="text" class="form-control" id="tipus" th:field="*{tipus}" value="${match.tipus}">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

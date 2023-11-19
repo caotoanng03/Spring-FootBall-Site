@@ -20,13 +20,13 @@ public class ContactModel {
     @Size(min=2, max=200)
     private String content;
 
-    private Date date;
+    private String date;
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
