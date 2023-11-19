@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default-admin :: layout(~{::title}, ~{::main})}">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${pageTitle}"></title>
+</head>
+<body>
+  <main>
+    <div class="container my-5">
+      <h1>Watcher List</h1>
+      <p>This is watchers customers list!</p>
+      <br/><br/>
+      <table class="table">
+        <thead class="table-light">
+        <tr>
+          <th >ID</th>
+          <th >Name</th>
+          <th >Gender</th>
+          <th >hasSeasonTicket?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="watcher : ${watchers}">
+          <td th:text="${watcher.id}"></td>
+          <td th:text="${watcher.nev}"></td>
+          <td th:text="${watcher.ferfi}? 'Male' : 'Female'"></td>
+          <td th:text="${watcher.berletes}? 'Yes' : 'No'"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

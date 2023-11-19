@@ -101,53 +101,13 @@ public class AdminController {
     }
 
     @GetMapping("/admin/statistics")
-    public String index(Model model) {
+    public String display3TableInfo(Model model) {
         model.addAttribute("pageTitle", "Admin| Statistics");
         String str = display3Table();
         System.out.println(str);
         model.addAttribute("result", str);
         return "/pages/admin/statistic/index";
     }
-
-//    String display3Table() {
-//
-//        String str = "";
-//        int counterEntranceTime = 0;
-//        int counterNumberOfNezo = 0;
-//        int counterNumberOfNezoHasSeasonTicket = 0;
-//
-//        for(MeccsModel meccs : meccsRepo.findAll()) {
-//            str += "Date: " + meccs.getDatum() + "; Type: " + meccs.getTipus();
-//            for (BelepesModel belepes: belepesRepo.findAll()){
-//               counterEntranceTime = 0;
-//                if( meccs.getId() == belepes.getMeccsid()) {
-//                    ++counterEntranceTime;
-//                }
-//
-//                for (NezoModel nezo: nezoRepo.findAll()) {
-//                    counterNumberOfNezo = 0;
-//                    if(belepes.getNezoid() == nezo.getId()) {
-//                        ++counterNumberOfNezo;
-//                    }
-//
-//                    if(nezo.getBerletes() == 0) {
-//                        ++counterNumberOfNezoHasSeasonTicket;
-//                    }
-//                    str += "Number of Watcher: " + counterNumberOfNezo;
-//                    str += "Number of Watcher has season ticket: " + counterNumberOfNezoHasSeasonTicket;
-//                    str += "<br>";
-//                }
-//
-//                str += "Distinct Entrance Time: " + counterEntranceTime;
-//                str += "<br>";
-//            }
-//
-//            str += "<br><br>";
-//
-//        }
-//
-//        return str;
-//    }
 
     String display3Table() {
         String str = "";
@@ -184,6 +144,13 @@ public class AdminController {
 
         str += "";
         return str;
+    }
+
+    @GetMapping("/admin/watchers")
+    public String getAllWatcherDetails(Model model) {
+        model.addAttribute("pageTitle", "Admin| Watcher");
+        model.addAttribute("watchers", nezoRepo.findAll());
+        return "/pages/admin/watcher/index";
     }
 
 
