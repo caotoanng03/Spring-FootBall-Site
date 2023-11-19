@@ -70,7 +70,6 @@ public class AdminController {
                 ++counter;
             }
         }
-        System.out.println(counter);
         if(counter == 1 ) {
             redirAttr.addFlashAttribute("message", "Failed!This time is already reserved: "
                     + meccsModel.getDatum() + "; " + meccsModel.getKezdes() + ". Choose other time!");
@@ -81,6 +80,13 @@ public class AdminController {
         redirAttr.addFlashAttribute("message", "The employee just updated. ID=" + meccsModel.getId());
         return "redirect:/admin/matches";
 
+    }
+
+    @GetMapping("/admin/matches/delete/{id}")
+    public String delete(@PathVariable(name="id") int id, RedirectAttributes redirAttr) {
+        meccsRepo.deleteById(id);
+        redirAttr.addFlashAttribute("message", "The match was deleted successfully. ID=" + id);
+        return "redirect:/admin/matches";
     }
 
 
