@@ -57,8 +57,12 @@
 
 /*Logged success*/
 .logged-success {
-    height: 67vh;
+    height: 75vh;
     margin-top: 10%;
 }
 
-
+/*Create match*/
+.form-create-match {
+    height: 77vh;
+    margin-bottom: 5%;
+}

@@ -2,6 +2,7 @@ package com.example.nezok.models;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.Date;
 import java.util.List;
@@ -14,14 +15,19 @@ public class MeccsModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Getter
     private String datum;
 
+    @Getter
     private String kezdes;
 
+    @Getter
     private Integer belepo;
 
+    @Getter
     private String tipus;
 
+    @Getter
     @OneToMany
     @JoinColumn(name="meccsid")
     private List<BelepesModel> belepesModelList;
@@ -40,26 +46,6 @@ public class MeccsModel {
 
     public void setDatum(String datum) {
         this.datum = datum;
-    }
-
-    public String getDatum() {
-        return datum;
-    }
-
-    public String getKezdes() {
-        return kezdes;
-    }
-
-    public Integer getBelepo() {
-        return belepo;
-    }
-
-    public String getTipus() {
-        return tipus;
-    }
-
-    public List<BelepesModel> getBelepesModelList() {
-        return belepesModelList;
     }
 
     public void setKezdes(String kezdes) {

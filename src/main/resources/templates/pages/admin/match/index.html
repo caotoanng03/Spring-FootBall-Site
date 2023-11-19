@@ -7,8 +7,10 @@
 <body>
 <main>
   <div class="container my-5">
+    <h3 style="color:red" th:text="${message}"></h3>
     <h1>Match List</h1>
     <p>Keep track of your favorite matches. Don't miss out!</p>
+    <a th:href="@{/admin/matches/create}" >Add new match</a>
     <br/><br/>
     <table class="table">
       <thead class="table-light">

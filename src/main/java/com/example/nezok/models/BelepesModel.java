@@ -1,6 +1,7 @@
 package com.example.nezok.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.sql.Time;
 
@@ -8,16 +9,19 @@ import java.sql.Time;
 @Table(name="belepes")
 public class BelepesModel {
 
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name="nezoid")
     private Integer nezoid;
+    @Getter
     @Column(name="meccsid")
     private Integer meccsid;
+    @Getter
     @Column(name="idopont")
-    private Time idopont;
+    private String idopont;
     @ManyToOne
     @JoinColumn(name = "nezoid", insertable = false, updatable = false)
     private NezoModel nezoModel;
@@ -26,24 +30,16 @@ public class BelepesModel {
     @JoinColumn(name = "meccsid", insertable = false, updatable = false)
     private MeccsModel meccsModel;
 
-    public Integer getNezoid() {
-        return nezoid;
+    public void setIdopont(String idopont) {
+        this.idopont = idopont;
     }
 
     public void setNezoid(Integer nezoid) {
         this.nezoid = nezoid;
     }
 
-    public Integer getMeccsid() {
-        return meccsid;
-    }
-
     public void setMeccsid(Integer meccsid) {
         this.meccsid = meccsid;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public NezoModel getNezo() {

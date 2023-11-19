@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default-admin :: layout(~{::title}, ~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+    <main>
+        <div class="container-sm my-5 form-create-match">
+            <h1>New Match</h1>
+            <form action="#" th:action="@{/admin/matches/createPost}" th:object="${match}" method="POST">
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date: </label>
+                    <input type="date" class="form-control" id="date" th:field="*{datum}" >
+                </div>
+                <div class="mb-3">
+                    <label for="startingTime" class="form-label">Starting Time: </label>
+                    <input type="time" class="form-control" id="startingTime" th:field="*{kezdes}">
+                </div>
+                <div class="mb-3">
+                    <label for="ticket" class="form-label">Ticket Price($): </label>
+                    <input type="number" class="form-control" id="ticket" th:field="*{belepo}">
+                </div>
+                <div class="mb-3">
+                    <label for="citeria" class="form-label">Type (bajnoki || kapu): </label>
+                    <input type="text" class="form-control" id="citeria" th:field="*{tipus}">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <input class="btn btn-secondary" type="reset" value="Reset">
+            </form>
+        </div>
+    </main>
+</body>
+</html>

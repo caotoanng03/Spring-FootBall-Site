@@ -13,14 +13,16 @@ public class NezoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Date idopont;
+
     @Getter
     private String nev;
+
     @Getter
     private Boolean ferfi;
 
     @Getter
     private Boolean berletes;
+
     @Getter
     @OneToMany
     @JoinColumn(name="nezoid")
