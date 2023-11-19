@@ -15,7 +15,11 @@
                 </li>
 
                 <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
-                    <a class="nav-link" th:href="@{/admin/watchers}">Watcher</a>
+                    <a class="nav-link" th:href="@{/admin/statistics}">Statistic</a>
+                </li>
+
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link" th:href="@{/admin/messages}">Client's Message</a>
                 </li>
 
                 <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">

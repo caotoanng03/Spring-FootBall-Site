@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default-admin :: layout(~{::title}, ~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+    <main>
+        <div class="container my-5">
+            <table border="2" cellpadding="5">
+                <div th:utext="${result}"></div>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

@@ -18,10 +18,10 @@ public class NezoModel {
     private String nev;
 
     @Getter
-    private Boolean ferfi;
+    private Integer ferfi;
 
     @Getter
-    private Boolean berletes;
+    private Integer berletes;
 
     @Getter
     @OneToMany
@@ -36,11 +36,12 @@ public class NezoModel {
         this.nev = nev;
     }
 
-    public void setFerfi(Boolean ferfi) {
+    public void setFerfi(Integer ferfi) {
         this.ferfi = ferfi;
     }
 
-    public void setBerletes(Boolean berletes) {
+
+    public void setBerletes(Integer berletes) {
         this.berletes = berletes;
     }
 }

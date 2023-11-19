@@ -14,6 +14,7 @@ public class BelepesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Getter
     @Column(name="nezoid")
     private Integer nezoid;
     @Getter
