@@ -1,11 +1,7 @@
 package com.example.nezok.controllers;
 
-import com.example.nezok.models.BelepesModel;
-import com.example.nezok.models.MeccsModel;
-import com.example.nezok.models.NezoModel;
-import com.example.nezok.repositories.BelepesRepo;
-import com.example.nezok.repositories.MeccsRepo;
-import com.example.nezok.repositories.NezoRepo;
+import com.example.nezok.models.*;
+import com.example.nezok.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class AdminController {
@@ -26,6 +21,10 @@ public class AdminController {
     NezoRepo nezoRepo;
     @Autowired
     BelepesRepo belepesRepo;
+    @Autowired
+    ContactRepo contactRepo;
+    @Autowired
+    UserRepo userRepo;
 
     @GetMapping("/admin/dashboard")
     public String dashboard(Model model) {
@@ -151,6 +150,53 @@ public class AdminController {
         model.addAttribute("pageTitle", "Admin| Watcher");
         model.addAttribute("watchers", nezoRepo.findAll());
         return "/pages/admin/watcher/index";
+    }
+
+    @GetMapping("/admin/messages")
+    public String getClientMessages(Model model) {
+        model.addAttribute("pageTitle", "Admin| Messages");
+        String str = getClientMessage();
+        model.addAttribute("message", str);
+        return "/pages/admin/messages/index";
+    }
+
+    String getClientMessage() {
+        String str = "<table class=\"table\"> " +
+                "<thead class=\"table-light\">\n" +
+                "      <tr>\n" +
+                "        <th >ID</th>\n" +
+                "        <th >Email</th>\n" +
+                "        <th >Content</th>\n" +
+                "        <th >Sending Date</th>\n" +
+                "        <th >Who sent?</th>\n" +
+                "      </tr>\n" +
+                "      </thead><tbody>";
+        ArrayList<ContactModel> messageList = (ArrayList<ContactModel>) contactRepo.findAll();
+        Collections.sort(messageList, (ContactModel obj1, ContactModel obj2) -> {
+            return obj1.getEmail().compareToIgnoreCase(obj2.getEmail());
+        });
+        for(ContactModel message: messageList) {
+            str += "<tr>";
+            str += "<td>" + message.getId() + "</td>";
+            str += "<td>" + message.getEmail() + "</td>";
+            str += "<td>" + message.getContent() + "</td>";
+            str += "<td>" + message.getDate() + "</td>";
+            boolean isUser = false;
+            for(UserModel user : userRepo.findAll()) {
+                if (user.getEmail().equals(message.getEmail())) {
+                    isUser = true;
+                    break;
+                }
+            }
+            if(isUser) {
+                str += "<td> User </td>";
+            } else {
+                str += "<td> Guest </td>";
+            }
+            str += "</tr>";
+        }
+        str += "</tbody></table>";
+        return str;
     }
 
 
