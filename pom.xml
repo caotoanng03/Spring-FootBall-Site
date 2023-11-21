@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>Spring-Nezok-developing</artifactId>
+    <artifactId>Spring-Nezok-Finished-Toan-Van</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Spring-Nezok-developing</name>
     <description>Spring-Nezok-developing</description>
