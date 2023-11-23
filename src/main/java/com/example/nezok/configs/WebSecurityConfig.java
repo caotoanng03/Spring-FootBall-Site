@@ -45,7 +45,8 @@ public class WebSecurityConfig {
                 // redirect to /home if login successfully
                 .formLogin().defaultSuccessUrl("/").permitAll()
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")) .logoutSuccessUrl("/").permitAll()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/").permitAll()
                 .and()
                 .exceptionHandling();
         http.cors().and().csrf().disable();

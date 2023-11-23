@@ -29,21 +29,21 @@ public class AdminController {
     @GetMapping("/admin/dashboard")
     public String dashboard(Model model) {
         model.addAttribute("pageTitle", "Admin| Dashboard");
-        return "/pages/admin/dashboard";
+        return "pages/admin/dashboard";
     }
 
     @GetMapping("/admin/matches")
     public String getAll(Model model) {
         model.addAttribute("matches", meccsRepo.findAll());
         model.addAttribute("pageTitle", "Home| Match");
-        return "/pages/admin/match/index";
+        return "pages/admin/match/index";
     }
 
     @GetMapping("/admin/matches/create")
     public String create(Model model) {
         model.addAttribute("match", new MeccsModel());
         model.addAttribute("pageTitle", "Admin| Match-Create");
-        return "/pages/admin/match/create";
+        return "pages/admin/match/create";
     }
 
     @PostMapping("/admin/matches/createPost")
@@ -66,7 +66,7 @@ public class AdminController {
     public String edit(@PathVariable(name="id") int id, Model model) {
         model.addAttribute("match", meccsRepo.findById(id));
         model.addAttribute("pageTitle", "Admin| Edit Match");
-        return "/pages/admin/match/edit";
+        return "pages/admin/match/edit";
     }
 
     @PostMapping("/admin/matches/editPost")
@@ -103,9 +103,8 @@ public class AdminController {
     public String display3TableInfo(Model model) {
         model.addAttribute("pageTitle", "Admin| Statistics");
         String str = display3Table();
-        System.out.println(str);
         model.addAttribute("result", str);
-        return "/pages/admin/statistic/index";
+        return "pages/admin/statistic/index";
     }
 
     String display3Table() {
@@ -149,7 +148,7 @@ public class AdminController {
     public String getAllWatcherDetails(Model model) {
         model.addAttribute("pageTitle", "Admin| Watcher");
         model.addAttribute("watchers", nezoRepo.findAll());
-        return "/pages/admin/watcher/index";
+        return "pages/admin/watcher/index";
     }
 
     @GetMapping("/admin/messages")
@@ -157,7 +156,7 @@ public class AdminController {
         model.addAttribute("pageTitle", "Admin| Messages");
         String str = getClientMessage();
         model.addAttribute("message", str);
-        return "/pages/admin/messages/index";
+        return "pages/admin/messages/index";
     }
 
     String getClientMessage() {

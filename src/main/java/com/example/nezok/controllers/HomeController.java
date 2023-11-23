@@ -29,7 +29,7 @@ public class HomeController {
     public String getAll(Model model) {
         model.addAttribute("matches", meccsRepo.findAll());
         model.addAttribute("pageTitle", "Admin| Match");
-        return "/pages/match/index";
+        return "pages/match/index";
     }
 
 

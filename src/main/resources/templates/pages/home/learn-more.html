@@ -1,71 +1,137 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="~{/layouts/default :: layout(~{::title}, ~{::main})}">
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <!--bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!--fontawesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <link rel="icon" th:href="@{/images/favicon.png}" type="image/x-icon">
   <title th:text="${pageTitle}"></title>
+
 </head>
 
 <body>
 
-  <main>
-    <div class="container learn-more">
-      <div class="row">
-        <div class="col-sm-3 mt-3 ml-5">
-          <h3>Some Remarkable Football Matches</h3>
-          <p>
-            Whether you're a supporter of the top European leagues, passionate about international competitions, or follow your local teams,
-            MatchTracker is your one-stop hub for all things football.
-            Bookmark our site, subscribe to our newsletter, and embark on a journey through the exhilarating world of football with us. Let's kick off the excitement together!
-          </p>
-        </div>
-        <div class="col-sm-3 mt-3 ml-3 mb-sm-0">
-          <div class="card h-100" style="width: 18rem;">
-            <img th:src="@{/images/homepage01.jpeg}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Most Appearance</h5>
-              <p class="card-text">
-                Manchester City is going head to head with Liverpool starting on 25 Nov 2023 at 12:30 UTC at Etihad Stadium stadium,
-                Manchester city, England. The match is a part of the Premier League.
-                Currently, Manchester City rank 1st, while Liverpool hold 2nd position.
-                Looking to compare the best-rated player on both teams?
-                Sofascore's rating system assigns each player a specific rating based on numerous data factors.</p>
-              <a href="https://www.sofascore.com/liverpool-manchester-city/rU" class="btn btn-primary" target="_blank">Link</a>
-            </div>
+<div xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/}">
+              <img th:src="@{/images/logo.png}" alt="logo">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/contact}">Contact</a>
+          </li>
+
+
+          <li class="nav-item" sec:authorize="isAnonymous()">
+            <a class="nav-link" th:href="@{/login}">Login</a>
+          </li>
+          <li class="nav-item" sec:authorize="isAnonymous()">
+            <a class="nav-link" th:href="@{/register}">Register</a>
+          </li>
+
+
+          <li class="nav-item" sec:authorize="isAuthenticated()">
+            <a class="nav-link" th:href="@{/matches}">Matches</a>
+          </li>
+          <li class="nav-item" sec:authorize="isAuthenticated()">
+            <a class="nav-link" th:href="@{/logout}">Logout</a>
+          </li>
+
+          <li class="nav-item ml-auto" sec:authorize="isAuthenticated()">
+            <a class="nav-link" href="#">
+              <strong>Welcome <span sec:authentication="principal.username"></span></strong>
+            </a>
+          </li>
+
+          <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+            <a class="nav-link" th:href="@{/admin/dashboard}">Admin</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</div>
+
+<main>
+  <div class="container learn-more">
+    <div class="row">
+      <div class="col-sm-3 mt-3 ml-5">
+        <h3>Some Remarkable Football Matches</h3>
+        <p>
+          Whether you're a supporter of the top European leagues, passionate about international competitions, or follow your local teams,
+          MatchTracker is your one-stop hub for all things football.
+          Bookmark our site, subscribe to our newsletter, and embark on a journey through the exhilarating world of football with us. Let's kick off the excitement together!
+        </p>
+      </div>
+      <div class="col-sm-3 mt-3 ml-3 mb-sm-0">
+        <div class="card h-100" style="width: 18rem;">
+          <img th:src="@{/images/homepage01.jpeg}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Most Appearance</h5>
+            <p class="card-text">
+              Manchester City is going head to head with Liverpool starting on 25 Nov 2023 at 12:30 UTC at Etihad Stadium stadium,
+              Manchester city, England. The match is a part of the Premier League.
+              Currently, Manchester City rank 1st, while Liverpool hold 2nd position.
+              Looking to compare the best-rated player on both teams?
+              Sofascore's rating system assigns each player a specific rating based on numerous data factors.</p>
+            <a href="https://www.sofascore.com/liverpool-manchester-city/rU" class="btn btn-primary" target="_blank">Link</a>
           </div>
         </div>
-        <div class="col-sm-3 mt-3">
-          <div class="card h-100" style="width: 18rem;">
-            <img th:src="@{/images/homepage03.png}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Everton Vs Manchester City</h5>
-              <p class="card-text">
-                Everton hosts Manchester City  on matchday 36 in the  2022/2023 Premier League  .
-                The Toffees come into the match after beating Brighton 1-5 away from home.
-                For their part, the 'skyblues' won 2-1 last time against Leeds.
-              </p>
-              <a href="https://www.dazn.com/es-ES/news/f%C3%BAtbol/everton-vs-manchester-city-fecha-hora-canal-tv-donde-ver-online-premier-league/1dt5l8c1ie1281xdn2y65n0q4u" class="btn btn-primary" target="_blank">Link</a>
-            </div>
+      </div>
+      <div class="col-sm-3 mt-3">
+        <div class="card h-100" style="width: 18rem;">
+          <img th:src="@{/images/homepage03.png}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Everton Vs Manchester City</h5>
+            <p class="card-text">
+              Everton hosts Manchester City  on matchday 36 in the  2022/2023 Premier League  .
+              The Toffees come into the match after beating Brighton 1-5 away from home.
+              For their part, the 'skyblues' won 2-1 last time against Leeds.
+            </p>
+            <a href="https://www.dazn.com/es-ES/news/f%C3%BAtbol/everton-vs-manchester-city-fecha-hora-canal-tv-donde-ver-online-premier-league/1dt5l8c1ie1281xdn2y65n0q4u" class="btn btn-primary" target="_blank">Link</a>
           </div>
         </div>
-        <div class="col-sm-3 mt-3">
-          <div class="card h-100" style="width: 18rem;">
-            <img th:src="@{/images/homepage04.jpeg}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Bacelona Vs Real Marid</h5>
-              <p class="card-text">
-                Barcelona is going head to head with Real Madrid starting on 28 Oct 2023 at 14:15 UTC at Olímpic Lluís Companys stadium, Barcelona city, Spain. The match is a part of the LaLiga.
-                Barcelona played against Real Madrid in 1 matches this season. Currently, Barcelona rank 3rd, while Real Madrid hold 2nd position. Looking to compare the best-rated player on both
-                teams? Sofascore's rating system assigns each player a specific rating based on numerous data factors.
-              </p>
-              <a href="https://www.sofascore.com/real-madrid-barcelona/rgbsEgb" class="btn btn-primary" target="_blank">Link</a>
-            </div>
+      </div>
+      <div class="col-sm-3 mt-3">
+        <div class="card h-100" style="width: 18rem;">
+          <img th:src="@{/images/homepage04.jpeg}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Bacelona Vs Real Marid</h5>
+            <p class="card-text">
+              Barcelona is going head to head with Real Madrid starting on 28 Oct 2023 at 14:15 UTC at Olímpic Lluís Companys stadium, Barcelona city, Spain. The match is a part of the LaLiga.
+              Barcelona played against Real Madrid in 1 matches this season. Currently, Barcelona rank 3rd, while Real Madrid hold 2nd position. Looking to compare the best-rated player on both
+              teams? Sofascore's rating system assigns each player a specific rating based on numerous data factors.
+            </p>
+            <a href="https://www.sofascore.com/real-madrid-barcelona/rgbsEgb" class="btn btn-primary" target="_blank">Link</a>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</main>
 
+<footer class="footer">
+  <p>&copy; 2023 Toan - Vanessza. All rights reserved.</p>
+</footer>
 
-  </main>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
+
 </html>

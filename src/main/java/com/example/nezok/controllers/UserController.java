@@ -19,7 +19,7 @@ public class UserController {
     public String register(Model model) {
         model.addAttribute("data", new UserModel());
         model.addAttribute("pageTitle", "Home| Register");
-        return "/pages/user/register";
+        return "pages/user/register";
     }
 
     @PostMapping("/registerPost")
@@ -27,7 +27,7 @@ public class UserController {
         for(UserModel user1 : userRepo.findAll()) {
             if(user1.getEmail().equals(user.getEmail())) {
                 model.addAttribute("errorMessage", "Email already existed");
-                return "/pages/user/register-error";
+                return "pages/user/register-error";
             }
         }
 
@@ -36,7 +36,7 @@ public class UserController {
         user.setRole("ROLE_USER");
         userRepo.save(user);
         model.addAttribute("id", user.getId());
-        return "/pages/user/register-success";
+        return "pages/user/register-success";
     }
 
 }
