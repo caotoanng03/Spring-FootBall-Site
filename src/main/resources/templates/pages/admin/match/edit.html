@@ -52,39 +52,40 @@
             </div>
         </nav>
     </div>
-    <main>
-        <div class="container-sm my-5">
-            <h1>Edit Match</h1>
-            <form action="#" th:action="@{/admin/matches/editPost}" th:object="${match}" method="POST">
-                <div class="mb-3">
-                    <input type="hidden" class="form-control" id="id" th:field="*{id}" value="${match.id}">
-                </div>
-                <div class="mb-3">
-                    <label for="datum" class="form-label">Date: </label>
-                    <input type="date" class="form-control" id="datum" th:field="*{datum}" value="${match.datum}">
-                </div>
-                <div class="mb-3">
-                    <label for="kezdes" class="form-label">Starting Time: </label>
-                    <input type="time" class="form-control" id="kezdes" th:field="*{kezdes}" value="${match.kezdes}">
-                </div>
-                <div class="mb-3">
-                    <label for="belepo" class="form-label">Ticket Price: </label>
-                    <input type="number" class="form-control" id="belepo" th:field="*{belepo}" value="${match.belepo}">
-                </div>
-                <div class="mb-3">
-                    <label for="tipus" class="form-label">Type (bajnoki || kapu): </label>
-                    <input type="text" class="form-control" id="tipus" th:field="*{tipus}" value="${match.tipus}">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </main>
+</div>
+<main>
+    <div class="container-sm my-5">
+        <h1>Edit Match</h1>
+        <form action="#" th:action="@{/admin/matches/editPost}" th:object="${match}" method="POST">
+            <div class="mb-3">
+                <input type="hidden" class="form-control" id="id" th:field="*{id}" value="${match.id}">
+            </div>
+            <div class="mb-3">
+                <label for="datum" class="form-label">Date: </label>
+                <input type="date" class="form-control" id="datum" th:field="*{datum}" value="${match.datum}">
+            </div>
+            <div class="mb-3">
+                <label for="kezdes" class="form-label">Starting Time: </label>
+                <input type="time" class="form-control" id="kezdes" th:field="*{kezdes}" value="${match.kezdes}">
+            </div>
+            <div class="mb-3">
+                <label for="belepo" class="form-label">Ticket Price: </label>
+                <input type="number" class="form-control" id="belepo" th:field="*{belepo}" value="${match.belepo}">
+            </div>
+            <div class="mb-3">
+                <label for="tipus" class="form-label">Type (bajnoki || kapu): </label>
+                <input type="text" class="form-control" id="tipus" th:field="*{tipus}" value="${match.tipus}">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</main>
 
-    <footer class="footer">
-        <p>&copy; 2023 Toan - Vanessza. All rights reserved.</p>
-    </footer>
+<footer class="footer">
+    <p>© 2023 Toan. All rights reserved.</p>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>

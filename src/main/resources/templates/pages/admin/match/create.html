@@ -52,37 +52,38 @@
             </div>
         </nav>
     </div>
-    <main>
-        <div class="container-sm my-5 form-create-match">
-            <h1>New Match</h1>
-            <form action="#" th:action="@{/admin/matches/createPost}" th:object="${match}" method="POST">
-                <div class="mb-3">
-                    <label for="date" class="form-label">Date: </label>
-                    <input type="date" class="form-control" id="date" th:field="*{datum}" >
-                </div>
-                <div class="mb-3">
-                    <label for="startingTime" class="form-label">Starting Time: </label>
-                    <input type="time" class="form-control" id="startingTime" th:field="*{kezdes}">
-                </div>
-                <div class="mb-3">
-                    <label for="ticket" class="form-label">Ticket Price($): </label>
-                    <input type="number" class="form-control" id="ticket" th:field="*{belepo}">
-                </div>
-                <div class="mb-3">
-                    <label for="citeria" class="form-label">Type (bajnoki || kapu): </label>
-                    <input type="text" class="form-control" id="citeria" th:field="*{tipus}">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <input class="btn btn-secondary" type="reset" value="Reset">
-            </form>
-        </div>
-    </main>
+</div>
+<main>
+    <div class="container-sm my-5 form-create-match">
+        <h1>New Match</h1>
+        <form action="#" th:action="@{/admin/matches/createPost}" th:object="${match}" method="POST">
+            <div class="mb-3">
+                <label for="date" class="form-label">Date: </label>
+                <input type="date" class="form-control" id="date" th:field="*{datum}" >
+            </div>
+            <div class="mb-3">
+                <label for="startingTime" class="form-label">Starting Time: </label>
+                <input type="time" class="form-control" id="startingTime" th:field="*{kezdes}">
+            </div>
+            <div class="mb-3">
+                <label for="ticket" class="form-label">Ticket Price($): </label>
+                <input type="number" class="form-control" id="ticket" th:field="*{belepo}">
+            </div>
+            <div class="mb-3">
+                <label for="citeria" class="form-label">Type (bajnoki || kapu): </label>
+                <input type="text" class="form-control" id="citeria" th:field="*{tipus}">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <input class="btn btn-secondary" type="reset" value="Reset">
+        </form>
+    </div>
+</main>
 
-    <footer class="footer">
-        <p>&copy; 2023 Toan - Vanessza. All rights reserved.</p>
-    </footer>
+<footer class="footer">
+    <p>&copy; 2023 Toan. All rights reserved.</p>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>

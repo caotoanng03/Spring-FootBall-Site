@@ -2,12 +2,26 @@
 
 /*Footer*/
 
+html {
+    height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .footer {
     font-family: 'Noto Serif', sans-serif;
     text-align: center;
     background-color: #333;
     color: #eee;
-    padding: 20px 0;
+    padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,10 +31,10 @@
 }
 
 /*Home page*/
-.homepage {
-    height: 80vh;
-    margin: 2rem 0;
-}
+/*.homepage {*/
+/*    height: 80vh;*/
+/*    margin: 2rem 0;*/
+/*}*/
 .homepage .content {
     display: flex;
     justify-content: center;
